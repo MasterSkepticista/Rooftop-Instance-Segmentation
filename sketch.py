@@ -8,10 +8,10 @@ import tqdm
 import matplotlib.pyplot as plt
 # Define constants
 NUM_CLASSES = 2     
-EPOCHS = 1
-BATCH_SIZE = 1
+EPOCHS = 17
+BATCH_SIZE = 2
 DROPOUT = 0.75
-image_shape = (600, 600)
+image_shape = (3584, 3584)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
