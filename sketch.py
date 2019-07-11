@@ -35,19 +35,30 @@ Example: image = cv2.imread(rgb_dir + rgb_list[0], 1) to read first image from R
 
 
 get_batches_fn = helper.gen_batch_function(root, image_shape)
+with tf.Session() as sess:
 
-print('Object ready')
-for X, y in get_batches_fn(2):
         '''
-        Snippet to view X and y samples
+        Get the required layers from pretrained model
         '''
-
-        gt = 255 * np.stack([y[0][:,:,0], y[0][:,:,0], y[0][:,:,0]], axis = -1)
+        input_tensor, keep_prob, layer3, layer4, layer7 = helper_functions.load_vgg(sess, vgg_path)
         
-        fig, axes = plt.subplots(2)
-        axes[0].imshow(X[0])
-        axes[1].imshow(gt)
-        plt.show()
         '''
-        End Snippet here
+        Obtain upsampled output layer from these three, skip connected layers
+        returns: fcn11
         '''
+        model_output = helper_functions.layers(layer3, layer4, layer7, NUM_CLASSES)
+
+        '''
+        Compile model and evaluate loss
+        Then Train
+        '''
+
+        logits, loss_op, train_op = helper_functions.optimize(model_output, correct_label, learning_rate, NUM_CLASSES)
+        sess.run(tf.global_variables_initializer())
+        sess.run(tf.local_variables_initializer())
+        print("Model Built")
+        helper_functions.train_nn(sess, EPOCHS, BATCH_SIZE, get_batches_fn,
+                train_op, loss_op, input_tensor, correct_label, keep_prob, learning_rate)
+        print("Finished training")
+
+        helper.save_inference_samples(runs_dir, 'data/test', sess, image_shape, logits, keep_prob, input_tensor)
