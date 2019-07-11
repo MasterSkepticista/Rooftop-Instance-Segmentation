@@ -24,10 +24,14 @@ keep_prob = tf.placeholder(tf.float32)
 root = 'data'
 rgb_dir = root + '/train/image'
 gt_dir = root + '/train/label'
-vgg_path = 'vgg/vgg'
+
+
+vgg_path = 'vgg' # When downloading VGG model
+# vgg_path = 'vgg/vgg' # Uncomment this when you have downloaded 
 runs_dir = './runs'
 
-# helper.maybe_download_pretrained_vgg(vgg_path)
+# Comment this when downloaded VGG model
+helper.maybe_download_pretrained_vgg(vgg_path)
 '''
 Get image by concatenating <dir_name> and <file_from_list>
 Example: image = cv2.imread(rgb_dir + rgb_list[0], 1) to read first image from RGB
