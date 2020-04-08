@@ -1,6 +1,11 @@
 # Rooftop Instance Segmentation using TensorFlow
 ### Aerial Imagery Dataset provided by National Topographic Office of New Zealand
 
+Sample Outputs (downsized):
+
+<img src="sample_out(0).png" alt="Result" width="200"> <img src="sample_out(1).png" alt="Result" width="200"/>
+<img src="sample_out(2).png" alt="Result" width="200"/>
+
 Link: https://www.airs-dataset.com/
 
 Extract the dataset completely, store in this format:
@@ -26,7 +31,4 @@ Trained on Nvidia Quadro GP100 with 16GB VRAM. Batch Size:2 Input resolution 358
 
 Training Time: 12 hours
 
-Sample Outputs (downsized):
 
-<img src="sample_out(0).png" alt="Result" width="200"> <img src="sample_out(1).png" alt="Result" width="200"/>
-<img src="sample_out(2).png" alt="Result" width="200"/>
