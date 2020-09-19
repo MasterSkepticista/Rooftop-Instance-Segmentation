@@ -21,13 +21,13 @@ root/data/test
 
 Model Used: VGG-16, Instance Segmentation
 
-If you get dependency error on scipy.misc, downgrade it to 1.0.0
+If you get dependency error on scipy.misc, downgrade it to 1.0.0 and install PIL (pillow)
 
 ```python
-pip install scipy==1.0.0
+pip install scipy==1.0.0 pillow
 ```
 
-Trained on Nvidia Quadro GP100 with 16GB VRAM. Batch Size:2 Input resolution 3584x3584. (Sharper Edges was primary objective)
+Trained on Nvidia Quadro GP100 with 16GB VRAM. Batch Size:2 Input resolution 3584x3584.
 
 Training Time: 12 hours
 
