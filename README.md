@@ -21,10 +21,16 @@ root/data/test
 
 Model Used: VGG-16, Instance Segmentation
 
-If you get dependency error on scipy.misc, downgrade it to 1.0.0 and install PIL (pillow)
+The script was written on older version of TensorFlow (1.15.x and lower). 
+
+Some newer python versions do not include the listing of older TF. 
+
+You can downgrade to Python 3.6.x to use it, or use a python virtualenv to install specific python binary (recommended).
+
+Install deps with the following command.
 
 ```python
-pip install scipy==1.0.0 pillow
+pip install -r requirements.txt
 ```
 
 Trained on Nvidia Quadro GP100 with 16GB VRAM. Batch Size:2 Input resolution 3584x3584.
